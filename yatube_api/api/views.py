@@ -66,5 +66,4 @@ class FollowViewSet(ListCreateViewSet):
         return self.request.user.follower.all()
 
     def perform_create(self, serializer):
-        user = self.request.user
-        serializer.save(user=user)
+        serializer.save(user=self.request.user)
